@@ -4,6 +4,7 @@ from django.views.generic import View
 from django.http import HttpResponse
 from .forms import Contactform
 from django.http import JsonResponse
+from . import forms
 
 # Create your views here.
 
@@ -22,6 +23,10 @@ def contactusform_view(request):
         contactusform.description = description
         contactusform.save()
 
-        return HttpResponse("<h1>Thanks For Contacting</h1>")
+    form = forms.Contactform()
+    return render(request,'contactusform/form.html', {'form': form})
 
-    return render(request,'contactusform/form.html')
+
+def database_view(request):
+    form = Contactusform.objects.all()
+    return render(request,'contactusform/database.html', {'form': form})

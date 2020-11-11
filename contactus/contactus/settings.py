@@ -15,8 +15,7 @@ SECRET_KEY = 'b#bxvugygx*^2_rhvcl6)b!r3-j3uswip$ghe#3u2ot791&mc9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','boiling-shelf-70651.herokuapp.com']
 
 # Application definition
 
@@ -31,9 +30,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'contactusform.apps.ContactusformConfig',
     'corsheaders',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -71,11 +72,11 @@ WSGI_APPLICATION = 'contactus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'contactusdb',
-        'USER':'postgres',
-        'PASSWORD':'koshii',
-        'HOST':'127.0.0.1',
-        'PORT':'5432',
+        'NAME': 'd1t9c226vk4q31',
+        'USER':'zwiznupwztwnqn',
+        'PASSWORD':'6003bfc1b5544542a0c4c85b80ccab0a7860712ae1255c6758bef59874320a99',
+        'HOST':'ec2-100-25-231-126.compute-1.amazonaws.com',
+        'PORT':5432,
     }
 }
 
@@ -116,5 +117,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = ['static']
+STATIC_URL = '/staticfiles/'
+
+STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')

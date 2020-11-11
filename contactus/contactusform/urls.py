@@ -4,5 +4,6 @@ from .import views
 urlpatterns = [
 
     path('',views.contactusform_view,name="form"),
-    #path('<int:course_id>',views.detail,name="detail"),
+    path('database',views.database_view,name="database"),
+   
 ]
